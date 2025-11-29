@@ -12,6 +12,14 @@ const CategorySchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
+    imageUrl: {
+      type: String,
+      default: null,
+    },
+    imagePath: {
+      type: String,
+      default: null,
+    },
   },
   { timestamps: true }
 );
