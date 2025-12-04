@@ -18,8 +18,10 @@ app.use(cors({
   credentials: true,
 }));
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// Increase body size limit for Base64 images in content
+// Note: MongoDB has a 16MB document size limit
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Serve static files from uploads directory
 const uploadDir = process.env.UPLOAD_DIR || './uploads';
